@@ -4,8 +4,8 @@
 }
 
 @{
-   /*
-    * wiki: A list of Edmonton Neighbourhood 
+    /*
+    * wiki: A list of Edmonton Neighbourhood
     * https://en.wikipedia.org/wiki/List_of_neighbourhoods_in_Edmonton
     * */
 }
@@ -26,88 +26,94 @@
     <div class="form-group">
         <label>Your Area in Edmonton</label>
         <div>
-                <label class="radio-inline">
-                    <input type="radio" name="optrate">Central
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" name="optrate"> Southwest
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" name="optrate"> Southwest
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" name="optrate">Northwest
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" name="optrate">Northeast
-                </label>
-            </div>
+            <label class="radio-inline">
+                <input type="radio" name="optrate">Central
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="optrate"> Southwest
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="optrate"> Southwest
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="optrate">Northwest
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="optrate">Northeast
+            </label>
         </div>
+    </div>
 
 
-        <div class="form-group">
-            <label>Your Neighhourhood</label>
-            <select class="form-control" id="selNeighbour">
-                <option></option>
-                <option>Allard</option>
-                <option>Calligan</option>
-                <option>Ruthford</option>
-                <option>Ellerslie</option>
-            </select>
+    <div class="form-group">
+        <label>Your Neighhourhood</label>
+        <select class="form-control" id="selNeighbour">
+            <option></option>
+            <option>Allard</option>
+            <option>Calligan</option>
+            <option>Ruthford</option>
+            <option>Ellerslie</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="usr">Type in Your Neighbourhood (if not in above list)</label>
+        <input type="text" class="form-control" id="txtNeibour">
+    </div>
+
+    <div class="form-group">
+        <label>Your Home Builder</label>
+        <select class="form-control" id="selBuilder">
+            <option></option>
+            <option>Jayman</option>
+            <option>Sterling</option>
+            <option>Rohit</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="usr">Type in Your Builder (if not in above list)</label>
+        <input type="text" class="form-control" id="txtBuilder">
+    </div>
+
+    <div class="row">
+        <div style="vertical-align:middle;" class="col-md-3">
+
+            <label>Your Rating</label><br /><label>(click a star to choose 1 -5)</label>
         </div>
-
-        <div class="form-group">
-            <label for="usr">Type in Your Neighbourhood (if not in above list)</label>
-            <input type="text" class="form-control" id="txtNeibour">
-        </div>
-
-        <div class="form-group">
-            <label>Your Home Builder</label>
-            <select class="form-control" id="selBuilder">
-                <option></option>
-                <option>Jayman</option>
-                <option>Sterling</option>
-                <option>Rohit</option>
-            </select>
-        </div>
-
-        <div class="form-group">
-            <label for="usr">Type in Your Builder (if not in above list)</label>
-            <input type="text" class="form-control" id="txtBuilder">
-        </div>
-
-        <div class="row">
-            <div style="vertical-align:middle;" class="col-md-3">
-
-                <label>Your Rating</label><br/><label>(click a star to choose 1 -5)</label></div>
-            <div class="col-md-4">
-                @Html.Partial("ratingWidget")
-
-            </div>
-        </div>
-
-
-            <div class="form-group">
-                <label>Your Comments</label>
-                <textarea class="form-control" rows="5" id="comment" name="comme"></textarea>
-            </div>
-
-            <div class="form-group">
-                <label>Your Email</label>
-                <input type="text" class="form-control" id="usr">
-            </div>
-
-            <div class="form-group">
-                <button type="button" class="btn btn-primary btn-lg" id="btnSubmit">Submit Your Rating</button>
-            </div>
-
-
+        <div class="col-md-4">
+            @Html.Partial("ratingWidget")
 
         </div>
+    </div>
+
+
+    <div class="form-group">
+        <label>Your Comments</label>
+        <textarea class="form-control" rows="5" id="comment" name="comme"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label>Your Email</label>
+        <input type="text" class="form-control" id="usr">
+    </div>
+
+    <div class="form-group">
+        <button type="button" class="btn btn-primary btn-lg" id="btnSubmit">Submit Your Rating</button>
+    </div>
+
+
+
+</div>
 
 <script>
-    $('#btnSubmit').click(function onSubmitClick() {
-        alert($([name = 'comme']).val());
-            alert($('#comment').val());
+
+    $("[name='rating']").click(function() {
+       
+        var i = 'star' + $("[name='rating']:checked").val();
+
+        //alert($('label[for="' + i + '"]').attr('title'));
+        $('#ratingResult').text($('label[for="' + i + '"]').attr('title'));
     });
+   
 </script>
